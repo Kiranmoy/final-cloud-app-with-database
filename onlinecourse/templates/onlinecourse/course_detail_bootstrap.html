@@ -63,10 +63,11 @@
     -->
 
     {% if user.is_authenticated %}
+
     </br>
     <button class="btn btn-primary btn-block" data-target="#exam" data-toggle="collapse">Start Exam</button>
-    <!-- A collapse example here: -->
 
+    <!-- A collapse example here: -->
     <div class="collapse" id="exam">
         <form action="{% url 'onlinecourse:submit' course.id %}" id="questionform" method="POST">
             {% for question in course.question_set.all %}
@@ -90,7 +91,7 @@
             <input class="btn btn-success btn-block" type="submit" value="Submit">
         </form>
     </div>
-
+    {% endif %}
 
     <!-- A choice submission form example
     <form id="questionform" action="point to a submit view" method="post">
