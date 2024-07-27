@@ -12,7 +12,7 @@ An `onlinecourse` app has already been provided in this repo upon which you will
 **ER Diagram**
 For your reference, we have prepared the ER diagram design for the new assesement feature.
 
-![Online course ER Diagram](img.png)
+![Online course ER Diagram](ER-diagram.png)
 
 Final Project Requirement:
 - Understand the requirements of the new course assessment feature
