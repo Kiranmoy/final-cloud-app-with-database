@@ -1,5 +1,6 @@
 import sys
 from django.utils.timezone import now
+
 try:
     from django.db import models
 except Exception:
@@ -49,7 +50,7 @@ class Learner(models.Model):
 
     def __str__(self):
         return self.user.username + "," + \
-               self.occupation
+            self.occupation
 
 
 # Course model
@@ -65,7 +66,7 @@ class Course(models.Model):
 
     def __str__(self):
         return "Name: " + self.name + "," + \
-               "Description: " + self.description
+            "Description: " + self.description
 
 
 # Lesson model
@@ -96,16 +97,16 @@ class Enrollment(models.Model):
 
 
 # <HINT> Create a Question Model with:
-    # Used to persist question content for a course
-    # Has a One-To-Many (or Many-To-Many if you want to reuse questions) relationship with course
-    # Has a grade point for each question
-    # Has question content
-    # Other fields and methods you would like to design
+# Used to persist question content for a course
+# Has a One-To-Many (or Many-To-Many if you want to reuse questions) relationship with course
+# Has a grade point for each question
+# Has question content
+# Other fields and methods you would like to design
 class Question(models.Model):
     # Foreign key to lesson
-    lesson_id=models.ForeignKey(Course, on_delete=models.CASCADE)
+    lesson_id = models.ForeignKey(Course, on_delete=models.CASCADE)
     # question text
-    question_text = models.CharField(max_length=200)
+    content = models.CharField(max_length=200)
     # question grade/mark
     grade = models.IntegerField(default=50)
 
@@ -123,15 +124,16 @@ class Question(models.Model):
 
 
 #  <HINT> Create a Choice Model with:
-    # Used to persist choice content for a question
-    # One-To-Many (or Many-To-Many if you want to reuse choices) relationship with Question
-    # Choice content
-    # Indicate if this choice of the question is a correct one or not
-    # Other fields and methods you would like to design
+# Used to persist choice content for a question
+# One-To-Many (or Many-To-Many if you want to reuse choices) relationship with Question
+# Choice content
+# Indicate if this choice of the question is a correct one or not
+# Other fields and methods you would like to design
 class Choice(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     content = models.CharField(max_length=200)
     is_correct = models.BooleanField(default=False)
+
 
 # <HINT> The submission model
 # One enrollment could have multiple submission
@@ -140,4 +142,3 @@ class Choice(models.Model):
 class Submission(models.Model):
     enrollment = models.ForeignKey(Enrollment, on_delete=models.CASCADE)
     choices = models.ManyToManyField(Choice)
-
