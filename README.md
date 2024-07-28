@@ -22,3 +22,10 @@ Final Project Requirement:
 - Create a new exam result template to show the result of the submission
 - Create a new exam result submission view
 - Create a new view to display and evaluate exam result
+
+**End Objective & Learnings**
+- Create a Django Web application project from scratch.
+- Managed dependencies in an isolated virtual environment.
+- Implemented Django ORM features for database design.
+- Implemented MVT (Model View Template) pattern.
+- Designed Django admin site for data adminstration.
